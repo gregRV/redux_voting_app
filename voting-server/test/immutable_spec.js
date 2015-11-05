@@ -3,12 +3,14 @@ import {List} from 'immutable';
 
 describe('immutability', () => {
 	describe('a tree', () => {
-		
+
+		// helper function to return new state after some change (adding movie)
 		function addMovie(currentState, movie) {
 			return currentState.update('movies', movies => movies.push(movie));
 		}
 
 		it('is immutable', () => {
+			// variables scoped to this block using 'let'
 			let state = Map({
 				movies: List.of('Trainspotting', '28 Days Later')
 			});
