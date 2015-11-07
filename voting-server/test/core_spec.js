@@ -11,7 +11,7 @@ describe('application logic', () => {
 			const entries = List.of('Trainspotting', '28 Days Later');
 			const nextState = setEntries(state, entries);
 			expect(nextState).to.equal(Map({
-				entries: List.of('Trainspotting', '28 Days Later');
+				entries: List.of('Trainspotting', '28 Days Later')
 			}));
 		});
 		
@@ -20,7 +20,7 @@ describe('application logic', () => {
 			const entries = ['Trainspotting', '28 Days Later'];
 			const nextState = setEntries(state, entries);
 			expect(nextState).to.equal(Map({
-				entries: List.of('Trainspotting', '28 Days Later');
+				entries: List.of('Trainspotting', '28 Days Later')
 			}));
 		});
 	});
@@ -69,7 +69,7 @@ describe('application logic', () => {
 						'28 Days Later': 3
 					})
 				}),
-				entries: List.of('Sunshine', 'Millions', '127 Hours');
+				entries: List.of('Sunshine', 'Millions', '127 Hours')
 			});
 			const nextState = next(state);
 			
@@ -114,7 +114,7 @@ describe('application logic', () => {
 				vote: Map({
 					pair: List.of('Trainspotting', '28 Days Later'),
 					tally: Map({
-						'Trainspotting', 1
+						'Trainspotting': 1
 					})
 				}),
 				entries: List()
@@ -133,6 +133,9 @@ describe('application logic', () => {
 				entries: List()
 			});
 			const nextState = vote(state, 'Trainspotting');
+			
+			console.log('nextState:', nextState);
+
 			expect(nextState).to.equal(Map({
 				pair: List.of('Trainspotting', '28 Days Later'),
 				tally: Map({
